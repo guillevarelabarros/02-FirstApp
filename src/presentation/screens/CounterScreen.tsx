@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 export const CounterScreen = () => {
 
@@ -15,30 +15,39 @@ export const CounterScreen = () => {
       </View>
 
       <View style={styles.buttonRow}>
-        <TouchableOpacity 
-          style={[styles.button, styles.buttonDanger]}
+        <Pressable 
+          style={({pressed}) => [
+            styles.button, 
+            styles.buttonDanger,
+            pressed && styles.buttonPressed
+          ]}
           onPress={ () => setCount(count - 1) }
-          activeOpacity={0.7}
         >
           <Text style={styles.buttonText}>-1</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity 
-          style={[styles.button, styles.buttonPrimary]}
+        <Pressable 
+          style={({pressed}) => [
+            styles.button, 
+            styles.buttonPrimary,
+            pressed && styles.buttonPressed
+          ]}
           onPress={ () => setCount(count + 1) }
-          activeOpacity={0.7}
         >
           <Text style={styles.buttonText}>+1</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
 
-      <TouchableOpacity 
-        style={[styles.button, styles.buttonSecondary]}
+      <Pressable 
+        style={({pressed}) => [
+          styles.button, 
+          styles.buttonSecondary,
+          pressed && styles.buttonPressed
+        ]}
         onPress={ () => setCount(0) }
-        activeOpacity={0.7}
       >
         <Text style={styles.buttonText}>Reset</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };
@@ -96,6 +105,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+  },
+  buttonPressed: {
+    opacity: 0.7,
+    transform: [{ scale: 0.98 }],
   },
   buttonPrimary: {
     backgroundColor: '#4CAF50',
