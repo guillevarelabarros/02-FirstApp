@@ -4,22 +4,22 @@ import { Button } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 
 interface Props {
-  label: string;
+  label?: string;
   onPress?: () => void;
   onLongPress?: () => void;
   disabled?: boolean;
+  iconName?: string;
 }
 
-export const PrimaryButton = ({ label, onPress, onLongPress, disabled = false }: Props) => {
+export const PrimaryButton = ({ label, onPress, onLongPress, disabled = false, iconName }: Props) => {
   return (
     <Button
       mode="contained"
       onPress={onPress}
       onLongPress={onLongPress}
       disabled={disabled}
-      buttonColor="#4CAF50"
-      textColor="white"
-      style={styles.button}
+      icon={iconName}
+      style={[styles.button, !label && styles.iconOnlyButton]}
       labelStyle={styles.buttonText}
     >
       {label}
@@ -30,10 +30,15 @@ export const PrimaryButton = ({ label, onPress, onLongPress, disabled = false }:
 const styles = StyleSheet.create({
   button: {
     minWidth: 120,
-    borderRadius: 12,
+    borderRadius: 16,
+  },
+  iconOnlyButton: {
+    minWidth: 64,
+    height: 64,
   },
   buttonText: {
     fontSize: 20,
     fontWeight: 'bold',
+    letterSpacing: 0.5,
   },
 });

@@ -1,0 +1,35 @@
+import { MD3LightTheme } from 'react-native-paper';
+import { colors } from './global.styles';
+
+export const paperTheme = {
+  ...MD3LightTheme,
+  colors: {
+    ...MD3LightTheme.colors,
+    primary: colors.primary,
+    onPrimary: colors.onPrimary,
+    primaryContainer: colors.primaryContainer,
+    onPrimaryContainer: colors.onPrimaryContainer,
+    secondary: colors.secondary,
+    onSecondary: colors.onSecondary,
+    secondaryContainer: colors.secondaryContainer,
+    onSecondaryContainer: colors.onSecondaryContainer,
+    tertiary: colors.tertiary,
+    onTertiary: colors.onTertiary,
+    tertiaryContainer: colors.tertiaryContainer,
+    onTertiaryContainer: colors.onTertiaryContainer,
+    error: colors.error,
+    onError: colors.onError,
+    errorContainer: colors.errorContainer,
+    onErrorContainer: colors.onErrorContainer,
+    background: colors.background,
+    onBackground: colors.onBackground,
+    surface: colors.surface,
+    onSurface: colors.onSurface,
+    surfaceVariant: colors.surfaceVariant,
+    onSurfaceVariant: colors.onSurfaceVariant,
+    outline: colors.outline,
+    outlineVariant: colors.outlineVariant,
+    shadow: colors.shadow,
+    scrim: colors.scrim,
+  },
+};
